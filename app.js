@@ -105,7 +105,6 @@ app.get('/admin', (req, res) => {
   if (current_user.role !== 'Administrator') {
     return res.redirect('/catalog');
   }
-  // Заглушка для управления книгами и пользователями
   res.render('admin', { user: current_user });
 });
 
