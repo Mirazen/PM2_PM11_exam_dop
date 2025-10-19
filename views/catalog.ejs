@@ -9,7 +9,8 @@
         .book { margin: 20px 0; padding: 10px; border: 1px solid #000; background: #7FFF00; }
         .low-stock { background: #ADD8E6; }
         .on-sale { background: #2E8B57; }
-        .price { color: #FF0000; text-decoration: line-through; }
+        .price { color: #000000; }
+        .price-on-sale { color: #FF0000; text-decoration: line-through; }
         .discount { color: #000000; margin-left: 10px; }
         .user { position: absolute; top: 10px; right: 10px; }
         .button { background: #00FA9A; border: none; padding: 10px 20px; margin: 5px; }
@@ -57,10 +58,12 @@
             Жанр: <%= book.genre_name %><br>
             Издательство: <%= book.publisher_name %><br>
             Год: <%= book.year %><br>
-            Цена: <span class="price"><%= book.price %> руб.</span>
             <% if (book.is_on_sale && book.discount_price) { %>
-                <span class="discount"><%= book.discount_price %> руб.</span>
-            <% } %><br>
+                Цена: <span class="price-on-sale"><%= book.price %> руб.</span>
+                <span class="discount"><%= book.discount_price %> руб.</span><br>
+            <% } else { %>
+                Цена: <span class="price"><%= book.price %> руб.</span><br>
+            <% } %>
             Количество: <%= book.stock %>
         </div>
     <% }); %>
